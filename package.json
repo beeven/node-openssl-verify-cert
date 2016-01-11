@@ -1,0 +1,18 @@
+{
+  "name": "node-openssl-verify-cert",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nan": "^2.2.0"
+  },
+  "devDependencies": {
+    "should": "^8.1.0"
+  }
+}
