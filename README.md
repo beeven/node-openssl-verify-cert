@@ -1,6 +1,10 @@
 node-openssl-verify-cert
 =================
+[![Build Status](https://travis-ci.org/beeven/node-openssl-verify-cert.svg?branch=master)](https://travis-ci.org/beeven/node-openssl-verify-cert)
+[![Dependencies](https://david-dm.org/beeven/node-openssl-verify-cert.svg)](https://david-dm.org/beeven/node-openssl-verify-cert)
+
 Verify a certificate against a trusted CA bundle.
+
 This package utilizes OpenSSL library, rather than spawning a child process like many of other packages.
 
 Installation
@@ -12,7 +16,11 @@ npm install node-openssl-verify-cert
 
 ### Windows
 According to [https://github.com/nodejs/node-gyp/wiki/Linking-to-OpenSSL](https://github.com/nodejs/node-gyp/wiki/Linking-to-OpenSSL)
-You should have OpenSSL for Windows installed in advanced. It can be downloaded at  [http://slproweb.com/products/Win32OpenSSL.html](http://slproweb.com/products/Win32OpenSSL.html).
+
+You should have OpenSSL for Windows installed in advanced.
+
+It can be downloaded at  [http://slproweb.com/products/Win32OpenSSL.html](http://slproweb.com/products/Win32OpenSSL.html).
+
 Make sure you have installed the full version which contains development libraries.
 ```bash
 npm install node-openssl-verify-cert --openssl_root="C:/OpenSSL-Win64 (where openssl is installed)"
@@ -21,12 +29,19 @@ npm install node-openssl-verify-cert --openssl_root="C:/OpenSSL-Win64 (where ope
 Usage
 ----------
 cert: The certificate to verify in pem format, as a string.
+
 ca: The trusted ca bundle in pem format
+
 callback: A callback function with 2 arguments, e.g.  function(err,result){}
+
     err: return null if verification succeeded.
+
          return the reason in string if verification failed.
+
     result: return 1 if verification succeeded.
+
             return 0 if verification failed.
+
             return -1 if there is no certificates in cert.
 
 more examples, see unit tests.
