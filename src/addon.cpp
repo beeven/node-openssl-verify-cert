@@ -27,9 +27,15 @@ void VerifyCert(const Nan::FunctionCallbackInfo<v8::Value>& info) {
 
     v8::Local<v8::Function> cb = info[2].As<v8::Function>();
 
-
+    EVP_add_digest(EVP_sha());
     EVP_add_digest(EVP_sha1());
+    EVP_add_digest(EVP_sha224());
     EVP_add_digest(EVP_sha256());
+    EVP_add_digest(EVP_sha384());
+    EVP_add_digest(EVP_md4());
+    EVP_add_digest(EVP_md5());
+    EVP_add_digest(EVP_ripemd160());
+    EVP_add_digest(EVP_mdc2());
 
     BIO *bio_cert = BIO_new(BIO_s_mem());
     BIO_puts(bio_cert, *pem_cert);
