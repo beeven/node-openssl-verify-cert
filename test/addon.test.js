@@ -3,7 +3,7 @@ var should = require("should");
 describe("Addon", function() {
     var addon = require("../build/Release/addon");
     it("should return 1 if certificates are valid", function(done) {
-        var ca = "-----BEGIN CERTIFICATE-----"+
+        var ca = "-----BEGIN CERTIFICATE-----\n"+
 "MIID1TCCAr2gAwIBAgIJAOIlWeuu3sr4MA0GCSqGSIb3DQEBCwUAMIGAMQswCQYD"+
 "VQQGEwJDTjESMBAGA1UECAwJR3Vhbmdkb25nMRIwEAYDVQQHDAlHdWFuZ3pob3Ux"+
 "DDAKBgNVBAoMA0daQzELMAkGA1UECwwCSVQxCzAJBgNVBAMMAkNBMSEwHwYJKoZI"+
@@ -25,8 +25,8 @@ describe("Addon", function() {
 "w+Oo0W5lMHWHT+DGwu575k6K3/nLxzPHYLLKofVxwt2ra6uvqQBbQq+hQNJ/8Myx"+
 "J41OlbMrajDFqGkJXSH8nzzNHqzLydrvS+pL7gFMf5xtDs+ufqKKCawiuA58b1vn"+
 "OgvUXEjwi7vaipA2uDYw5+dQvuBkTNaKww==" +
-"-----END CERTIFICATE-----";
-        var cert = "-----BEGIN CERTIFICATE-----"+
+"\n-----END CERTIFICATE-----";
+        var cert = "-----BEGIN CERTIFICATE-----\n"+
 "MIIDejCCAmICAQEwDQYJKoZIhvcNAQELBQAwgYAxCzAJBgNVBAYTAkNOMRIwEAYD"+
 "VQQIDAlHdWFuZ2RvbmcxEjAQBgNVBAcMCUd1YW5nemhvdTEMMAoGA1UECgwDR1pD"+
 "MQswCQYDVQQLDAJJVDELMAkGA1UEAwwCQ0ExITAfBgkqhkiG9w0BCQEWEmJlZXZl"+
@@ -46,7 +46,7 @@ describe("Addon", function() {
 "GB+bZMbLuzQkKQXIFqZz1SktYU+VyT+4OIvolBytfUhNUSztt7YcxuLVsXoiBzFh"+
 "87g2I+8TEPDWyebSWoyWP70g/42zmNybel+SnjlYIjSM10HM4jJg4yQYu4xe/t4m"+
 "bnpNaaue+EKc79B25yIJdxLIw03CcreT6ROArgnr"+
-"-----END CERTIFICATE-----";
+"\n-----END CERTIFICATE-----";
         addon.verifyCert(cert, ca,function(err,ret){
             should(err).be.Null();
             ret.should.equal(1);
@@ -56,7 +56,7 @@ describe("Addon", function() {
     });
 
     it("should return 0 if cert is not valid", function(done) {
-        var ca = "-----BEGIN CERTIFICATE-----"+
+        var ca = "-----BEGIN CERTIFICATE-----\n"+
 "MIID1TCCAr2gAwIBAgIJAOIlWeuu3sr4MA0GCSqGSIb3DQEBCwUAMIGAMQswCQYD"+
 "VQQGEwJDTjESMBAGA1UECAwJR3Vhbmdkb25nMRIwEAYDVQQHDAlHdWFuZ3pob3Ux"+
 "DDAKBgNVBAoMA0daQzELMAkGA1UECwwCSVQxCzAJBgNVBAMMAkNBMSEwHwYJKoZI"+
@@ -78,8 +78,8 @@ describe("Addon", function() {
 "w+Oo0W5lMHWHT+DGwu575k6K3/nLxzPHYLLKofVxwt2ra6uvqQBbQq+hQNJ/8Myx"+
 "J41OlbMrajDFqGkJXSH8nzzNHqzLydrvS+pL7gFMf5xtDs+ufqKKCawiuA58b1vn"+
 "OgvUXEjwi7vaipA2uDYw5+dQvuBkTNaKww=="+
-"-----END CERTIFICATE-----";
-        var cert = "-----BEGIN CERTIFICATE-----"+
+"\n-----END CERTIFICATE-----";
+        var cert = "-----BEGIN CERTIFICATE-----\n"+
 "MIIDejCCAmICAQEwDQYJKoZIhvcNAQELBQAwgYAxCzAJBgNVBAYTAkNOMRIwEAYD"+
 "VQQIDAlHdWFuZ2RvbmcxEjAQBgNVBAcMCUd1YW5nemhvdTEMMAoGA1UECgwDR1pD"+
 "MQswCQYDVQQLDAJJVDELMAkGA1UEAwwCQ0ExITAfBgkqhkiG9w0BCQEWEmJlZXZl"+
@@ -99,7 +99,7 @@ describe("Addon", function() {
 "GB+bZMbLuzQkKQXIFqZz1SktYU+VyT+4OIvolBytfUhNUSztt7YcxuLVsXoiBzFh"+
 "87g2I+8TEPDWyebSWoyWP70g/42zmNybel+snjlYIjSM10HM4jJg4yQYu4xe/t4m"+
 "bnpNaaue+EKc79B25yIJdxLIw03CcreT6ROArgnr"+
-"-----END CERTIFICATE-----";
+"\n-----END CERTIFICATE-----";
         addon.verifyCert(cert, ca,function(err,ret){
             ret.should.equal(0);
             err.should.not.be.Null();
