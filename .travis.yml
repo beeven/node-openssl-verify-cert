@@ -1,4 +1,5 @@
-language: cpp
+language:
+    - cpp
 
 env:
     matrix:
@@ -31,6 +32,8 @@ install:
     - source ~/.nvm/nvm.sh
     - nvm install $NODE_VERSION
     - node --version
+    - npm install -g node-gyp
+    - node-gyp install
     - npm install
 
 before_script:

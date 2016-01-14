@@ -8,7 +8,7 @@
         "url": "https://github.com/beeven/node-openssl-verify-cert"
     },
     "scripts": {
-        "test": "mocha --harmony"
+        "test": "mocha"
     },
     "keywords": ["OpenSSL", "verify", "certificate"],
     "author": "Beeven Yip <beeven@hotmail.com>",
