@@ -1,9 +1,10 @@
-language: node_js
+language: cpp
 
-node_js:
-    - 0.12.9
-    - 4.2.4
-    - 5.4.1
+env:
+    matrix:
+        - NODE_VERSION="0.12"
+        - NODE_VERSION="4"
+        - NODE_VERSION="5"
 
 os:
     - linux
@@ -11,7 +12,7 @@ os:
 
 notifications:
   email:
-    - rod@vagg.org
+    - beeven@hotmail.com
 
 addons:
     apt:
@@ -23,9 +24,14 @@ addons:
 
 before_install:
     - export CC="gcc-4.9" CXX="g++-4.9"
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update          ; fi
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install nvm     ; fi
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then source ~/.nvm/nvm.sh ; fi
+
+install:
+    - rm -rf ~/.nvm
+    - git clone https://github.com/creationix/nvm.git ~/.nvm
+    - source ~/.nvm/nvm.sh
+    - nvm install $NODE_VERSION
+    - node --version
+    - npm install
 
 before_script:
     - npm install -g mocha
