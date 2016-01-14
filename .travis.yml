@@ -9,6 +9,10 @@ os:
     - linux
     - osx
 
+notifications:
+  email:
+    - rod@vagg.org
+
 addons:
     apt:
         sources:
@@ -19,6 +23,9 @@ addons:
 
 before_install:
     - export CC="gcc-4.9" CXX="g++-4.9"
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update          ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install nvm     ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then source ~/.nvm/nvm.sh ; fi
 
 before_script:
     - npm install -g mocha
