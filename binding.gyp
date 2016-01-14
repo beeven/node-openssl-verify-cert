@@ -49,6 +49,12 @@
 				    'include_dirs': [
 				        '<(openssl_root)/include',
 				    ],
+				}],
+				[ 'OS=="mac"', {
+					'libraries': [
+						'-lssl',
+						'-lcrypto'
+					]
 				}]
 			]
 		}

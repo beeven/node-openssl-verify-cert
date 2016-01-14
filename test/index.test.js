@@ -1,6 +1,6 @@
 var should = require("should");
 
-describe("Addon", function() {
+describe("Index", function() {
     var ca = `-----BEGIN CERTIFICATE-----
 MIID1TCCAr2gAwIBAgIJAOIlWeuu3sr4MA0GCSqGSIb3DQEBCwUAMIGAMQswCQYD
 VQQGEwJDTjESMBAGA1UECAwJR3Vhbmdkb25nMRIwEAYDVQQHDAlHdWFuZ3pob3Ux

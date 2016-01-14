@@ -1,24 +1,27 @@
 language: node_js
 
 node_js:
-- 4.2.4
+    - 0.12.9
+    - 4.2.4
+    - 5.4.1
 
 os:
-- linux
+    - linux
+    - osx
 
 addons:
     apt:
         sources:
-        - ubuntu-toolchain-r-test
+            - ubuntu-toolchain-r-test
         packages:
-        - gcc-4.9
-        - g++-4.9
+            - gcc-4.9
+            - g++-4.9
 
 before_install:
-- export CC="gcc-4.9" CXX="g++-4.9"
+    - export CC="gcc-4.9" CXX="g++-4.9"
 
 before_script:
-- npm install -g mocha
+    - npm install -g mocha
 
 script:
-- npm test
+    - npm test
