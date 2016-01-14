@@ -24,7 +24,7 @@ addons:
             - g++-4.9
 
 before_install:
-    - export CC="gcc-4.9" CXX="g++-4.9"
+    - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then export CC="gcc-4.9" CXX="g++-4.9" ; fi
 
 install:
     - rm -rf ~/.nvm
