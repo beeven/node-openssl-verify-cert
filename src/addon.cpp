@@ -86,7 +86,7 @@ void VerifyCert(const Nan::FunctionCallbackInfo<v8::Value>& info) {
     X509_free(cert);
     BIO_free_all(bio_cert);
     BIO_free_all(bio_ca);
-    EVP_cleanup();
+    //EVP_cleanup();
 }
 
 void Init(v8::Local<v8::Object> exports) {

@@ -18,9 +18,20 @@ exports.verifyCert = function(cert,ca,callback) {
     if(Buffer.isBuffer(cert)){
         cert = cert.toString();
     }
+
+    var m = cert.match(/^(-{5}BEGIN CERTIFICATE-{5}\n)?((.|\n)+?)(\n-{5}END CERTIFICATE-{5}(.|\s)*)?$/);
+    var certBody = m[2];
+    if(m == null || certBody == null || typeof(certBody)==='undefined') {
+      return Promise.reject("Invalid certificates");
+    } else if(certBody.indexOf("\n") == -1) {
+      certBody = certBody.match(/.{1,64}/g).join("\n");
+    }
+    cert = "-----BEGIN CERTIFICATE-----\n" + certBody + "\n-----END CERTIFICATE-----";
+
     if(Buffer.isBuffer(ca)){
         ca = ca.toString();
     }
+
     if(typeof(callback) === 'undefined' || callback === null) {
         return new Promise(function(resolve,reject){
             addon.verifyCert(cert,ca,function(err,result){
