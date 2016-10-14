@@ -51,9 +51,13 @@
 				    ],
 				}],
 				[ 'OS=="mac"', {
+					'include_dirs': [
+						'/usr/local/opt/openssl/include',
+					],
 					'libraries': [
-						'-lssl',
-						'-lcrypto'
+						'-L/usr/local/opt/openssl/lib',
+						#'-lssl',
+						#'-lcrypto',
 					],
 					'xcode_settings': {
 						'OTHER_CPLUSPLUSFLAGS': ['-std=c++11', '-stdlib=libc++'],
@@ -61,7 +65,7 @@
 						# https://github.com/TooTallNate/node-gyp/pull/612
 						'OTHER_LDFLAGS':['-undefined dynamic_lookup'],
 						'GCC_ENABLE_CPP_EXCEPTIONS': 'YES',
-						'MACOSX_DEPLOYMENT_TARGET': '10.8'
+						'MACOSX_DEPLOYMENT_TARGET': '10.9'
 					}
 				}]
 			]

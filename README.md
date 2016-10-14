@@ -1,5 +1,5 @@
-node-openssl-verify-cert
-=================
+#node-openssl-verify-cert
+
 
 Verify a certificate against a trusted CA bundle.
 
@@ -12,9 +12,16 @@ This package utilizes OpenSSL library, rather than spawning a child process like
 
 Installation
 -------------
-### Linux & Mac
+### Linux
 ```bash
-npm install node-openssl-verify-cert
+$ npm install node-openssl-verify-cert
+```
+
+### Mac
+On macOS 10.12 sierra, openssl must be install via brew. The default location of openssl is ```/usr/local/opt/openssl```.
+```bash
+$ brew install openssl
+$ npm install node-openssl-verify-cert
 ```
 
 ### Windows
@@ -24,7 +31,7 @@ It can be downloaded at  [http://slproweb.com/products/Win32OpenSSL.html](http:/
 Make sure you have installed the full version which contains development libraries.
 
 ```bash
-npm install node-openssl-verify-cert --openssl_root="C:/OpenSSL-Win64 (where openssl is installed)"
+\> npm install node-openssl-verify-cert --openssl_root="C:/OpenSSL-Win64 (where openssl is installed)"
 ```
 
 Usage
