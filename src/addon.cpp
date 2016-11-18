@@ -42,14 +42,26 @@ void VerifyCert(const Nan::FunctionCallbackInfo<v8::Value>& info) {
     BIO *bio_cert = BIO_new(BIO_s_mem());
     BIO_puts(bio_cert, *pem_cert);
     X509 *cert = PEM_read_bio_X509(bio_cert,NULL,NULL,NULL);
+
+    STACK_OF(X509_INFO) *ca_inf_stack;
+    X509_INFO *ca_inf;
     BIO *bio_ca = BIO_new(BIO_s_mem());
     BIO_puts(bio_ca, *pem_ca);
-    X509 *ca = PEM_read_bio_X509(bio_ca,NULL,NULL,NULL);
+
+    ca_inf_stack = PEM_X509_INFO_read_bio(bio_ca, NULL, NULL, NULL);
 
     X509_STORE *store = X509_STORE_new();
-    X509_STORE_add_cert(store,ca);
 
-
+    // Loop through all certs in the CA file
+    for (int i = 0; i < sk_X509_INFO_num(ca_inf_stack); i++) {
+        ca_inf = sk_X509_INFO_value(ca_inf_stack, i);
+        if (ca_inf->x509) {
+            X509_STORE_add_cert(store, ca_inf->x509);
+        }
+        if(ca_inf->crl) {
+            X509_STORE_add_crl(store, ca_inf->crl);
+        }
+    }
 
     X509_STORE_CTX *ctx = X509_STORE_CTX_new();
     X509_STORE_CTX_init(ctx,store,cert,NULL);
@@ -82,7 +94,7 @@ void VerifyCert(const Nan::FunctionCallbackInfo<v8::Value>& info) {
 
     X509_STORE_CTX_free(ctx);
     X509_STORE_free(store);
-    X509_free(ca);
+    sk_X509_INFO_pop_free(ca_inf_stack, X509_INFO_free);
     X509_free(cert);
     BIO_free_all(bio_cert);
     BIO_free_all(bio_ca);
