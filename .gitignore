@@ -3,3 +3,9 @@ build/
 .idea/
 .DS_Store
 .vscode/
+
+# git temps
+*.sw*
+
+# yarn lock file
+yarn.lock
