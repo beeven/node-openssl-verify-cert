@@ -1,7 +1,7 @@
 {
     "name": "node-openssl-verify-cert",
-    "version": "0.9.6",
-    "description": "",
+    "version": "0.9.9",
+    "description": "Verify certificates with openssl",
     "main": "index.js",
     "repository": {
         "type": "git",
@@ -12,6 +12,9 @@
     },
     "keywords": ["OpenSSL", "verify", "certificate"],
     "author": "Beeven Yip <beeven@hotmail.com>",
+    "contributors": [
+        "tmyersjstar"
+    ],
     "license": "MIT",
     "dependencies": {
         "nan": "^2.4.0"
