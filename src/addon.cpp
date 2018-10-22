@@ -28,7 +28,6 @@ void VerifyCert(const Nan::FunctionCallbackInfo<v8::Value>& info) {
     v8::Local<v8::Function> cb = info[2].As<v8::Function>();
 
     //OpenSSL_add_all_algorithms();
-    EVP_add_digest(EVP_sha());
     EVP_add_digest(EVP_sha1());
     EVP_add_digest(EVP_sha224());
     EVP_add_digest(EVP_sha256());
