@@ -10,14 +10,18 @@
     "scripts": {
         "test": "mocha"
     },
-    "keywords": ["OpenSSL", "verify", "certificate"],
+    "keywords": [
+        "OpenSSL",
+        "verify",
+        "certificate"
+    ],
     "author": "Beeven Yip <beeven@hotmail.com>",
     "contributors": [
         "tmyersjstar"
     ],
     "license": "MIT",
     "dependencies": {
-        "nan": "^2.4.0"
+        "nan": "2.11.1"
     },
     "devDependencies": {
         "should": "^11.1.1"
